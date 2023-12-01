@@ -1,11 +1,16 @@
+@font-face {
+    font-family: "Montserrat-ExtraLight";
+    src: url("./Montserrat/static/Montserrat-ExtraLight.ttf");
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Montserrat-ExtraLight";
     margin: 20px;
 }
 
 h1 {
     text-align: center;
-    color: blue;
+    color: rgb(28, 156, 124);
 }
 
 .tickets {
