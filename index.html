@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ticket.css">
+
     <title>Ticket Sales Cart</title>
 </head>
 <body>
@@ -11,28 +13,37 @@
         
     <div class="tickets">
         <div class="ticket" data-id="1">
-            <h2>Event 1 Ticket</h2>
-            <p>Price: $50</p>
-            <label for="event1-quantity">Quantity:</label>
+            <img src="images/event_img.jpeg" class="ticket-img" />
+            <div class="ticket-info">
+                <h2 class="ticket-name" >Event 1 Ticket</h2>
+                <p class="ticket-price">Price: $50</p>
+            </div>        
             <input type="number" id="event1-quantity" value="1" min="1">
             <button class="add-to-cart">Add to Cart</button>
         </div>
     
         <div class="ticket" data-id="2">
-            <h2>Event 2 Ticket</h2>
-            <p>Price: $60</p>
-            <label for="event2-quantity">Quantity:</label>
-            <input type="number" id="event2-quantity" value="1" min="1">
+            <img src="images/event_img.jpeg" class="ticket-img" />
+            <div class="ticket-info">
+                <h2 class="ticket-name" >Event 2 Ticket</h2>
+                <p class="ticket-price">Price: $60</p>
+            </div>        
+            <input type="number" id="event1-quantity" value="1" min="1">
             <button class="add-to-cart">Add to Cart</button>
         </div>
-    
+
+
         <div class="ticket" data-id="3">
-            <h2>Event 3 Ticket</h2>
-            <p>Price: $70</p>
-            <label for="event3-quantity">Quantity:</label>
-            <input type="number" id="event3-quantity" value="1" min="1">
+            <img src="images/event_img.jpeg" class="ticket-img" />
+            <div class="ticket-info">
+                <h2 class="ticket-name" >Event 3 Ticket</h2>
+                <p class="ticket-price">Price: $70</p>
+            </div>        
+            <input type="number" id="event1-quantity" value="1" min="1">
             <button class="add-to-cart">Add to Cart</button>
         </div>
+
+
     </div>
     
     </div>
