@@ -16,10 +16,22 @@ document.addEventListener("DOMContentLoaded", function() {
         const ticketName = ticket.querySelector("h2").textContent;
         const ticketPrice = parseFloat(ticket.querySelector("p").textContent.slice(8));
 
-        // Create a new cart item
-        const cartItem = document.createElement("li");
-        cartItem.innerHTML = `${ticketName} - $${ticketPrice}`;
-        cartItems.appendChild(cartItem);
+
+        //changing on adding new item we update quantity in existing list if it exists
+        let cart = JSON.parse(localStorage.getItem("cart")) || {};
+ 
+        if (!(ticketId in cart)) {
+            // Create a new cart item
+            const cartItem = document.createElement("li");
+            cartItem.setAttribute('data-id', ticketId); // Set data-id attribute
+            cartItem.innerHTML = `${ticketName} - $${ticketPrice}`;
+            cartItems.appendChild(cartItem);
+        } else {
+            // Update existing cart item
+            const existingCartItem = document.querySelector(`#cart-items [data-id="${ticketId}"]`);
+            const quantity = cart[ticketId] + 1;
+            existingCartItem.innerHTML = `${ticketName} - $${ticketPrice} x ${quantity}`;
+        }
 
         // Update the cart total
         const currentTotal = parseFloat(cartTotal.textContent);
@@ -28,17 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Save the cart to local storage
         saveCart(ticketId);
     }
-    /*event.target: 
-    refers to the element that triggered the event, which is the button with the class "add-to-cart.
-    When a user clicks the "Add to Cart" button, event.target will point to that button element.
     
-    .parentElement: allows you to access the parent element of the element referred to by event.target. 
-    In your code, you expect that the parent element of the "Add to Cart" button is the .ticket element 
-    that contains information about the ticket.
-    By using event.target.parentElement, you're essentially saying,     "Give me the parent element of the button that was clicked." 
-    This allows you to work with the .ticket element that contains details about the ticket, 
-    such as the name, price, and data ID, which you then use to add the ticket to the cart with the appropriate information.
-    */
 
     function saveCart(itemId) {
         let cart = JSON.parse(localStorage.getItem("cart")) || {};
