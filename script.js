@@ -19,10 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         //changing on adding new item we update quantity in existing list if it exists
         let cart = JSON.parse(localStorage.getItem("cart")) || {};
-        let isItemNew = !(ticketId in cart);
-    
-        
-        if (isItemNew) {
+ 
+        if (!(ticketId in cart)) {
             // Create a new cart item
             const cartItem = document.createElement("li");
             cartItem.setAttribute('data-id', ticketId); // Set data-id attribute
